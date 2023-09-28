@@ -1,5 +1,7 @@
 package br.senai.sp.jandira.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Cliente {
@@ -7,6 +9,21 @@ public class Cliente {
     private long cpf, rg, telefone;
 
     Scanner scanner = new Scanner(System.in);
+    List<Cliente> listCliente = new ArrayList<>();
+    public void adicionarCliente  (Cliente cliente){
+        listCliente.add(cliente);
+    }
+
+
+    public  Cliente pesquisarCliente(long cpf){
+        for (Cliente cliente : listCliente){
+            long cpfCliente = cliente.getCpf();
+             if (cpfCliente == cpf){
+                 return cliente;
+             }
+        }
+        return  null;
+    }
 
     public void cadastrarCliente(){
 
